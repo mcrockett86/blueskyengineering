@@ -10,6 +10,9 @@ const ParticlesComponent = (props: any) => {
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
+
+
+
     }).then(() => {
       setInit(true);
     });
@@ -66,13 +69,13 @@ const ParticlesComponent = (props: any) => {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 100,
         },
         opacity: {
           value: 0.5,
         },
         shape: {
-          type: "circle",
+          type: "triangle"
         },
         size: {
           value: { min: 1, max: 5 },
