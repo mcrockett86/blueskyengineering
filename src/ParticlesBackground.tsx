@@ -4,7 +4,6 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
-import './ParticlesBackground.css'
 
 function ParticlesComponent(props: any) {
 
@@ -109,8 +108,6 @@ function ParticlesComponent(props: any) {
     console.log("particles.js loaded", container);
   };
 
-  
-  
   if (init) {
     console.log("inside init conditional ...")
     //console.log(options?.particles?.color?.value);  // use optional chaining to not throw error

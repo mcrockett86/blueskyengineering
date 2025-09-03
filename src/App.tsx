@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import ParticlesComponent from './ParticlesBackground';
-import ButtonChat from './ButtonChat';
 
 function App() {
   const [particles_state, setParticlesState] = useState("inactive");  // inactive, listening, active
@@ -34,8 +33,6 @@ function App() {
             <a className="btn btn-primary btn-lg mx-2" href="mailto:applybluesky@gmail.com" role="button">Contact Me</a>
             <a className="btn btn-secondary btn-lg mx-2" href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" role="button">Book a Meeting</a>
             <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={updateParticleBackground}>Chat with AI</a>
-
-            {/*<ButtonChat />*/}
           </p>
         </div>
       </header>
