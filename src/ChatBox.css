@@ -4,3 +4,10 @@
   font-size: 20px;
   color: #ff9900;
 }
+
+.response {
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  color: #0cc926;
+}

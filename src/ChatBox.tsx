@@ -20,16 +20,15 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
 
   const prevListening = useRef(listening);
 
-  let response_text = "";
-
   useEffect(() => {
     if (app_state === "listening") {
+      resetTranscript();
       SpeechRecognition.startListening();
       setProcessing(false);
     } else if (app_state === "active") {
       setProcessing(true);
     }
-  }, [app_state]);
+  }, [app_state, resetTranscript]);
 
   useEffect(() => {
     // When listening changes from true to false and there is a transcript
@@ -45,6 +44,11 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
     displayedText = "begin speaking into your microphone now";
   }
 
+  let response_text = "";
+  if (app_state === "active" && transcript) {
+    response_text = "placeholder AI response";
+  }
+
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser does not support speech recognition.</span>;
   } else {
@@ -54,7 +58,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
         <p>Processing: {processing.toString()}</p>*/}
         <p className="transcript">{displayedText}</p>
         <hr className="my-4" />
-        <p>{response_text}</p>
+        <p className="response">{response_text}</p>
       </div>
     );
   }
