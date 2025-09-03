@@ -1,0 +1,9 @@
+/* fading in the container with defined id = tsparticles*/
+#tsparticles {
+    animation: fadeIn 2s ease-in forwards; /* Adjust duration and easing */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0}
+    to { opacity: 1}
+}

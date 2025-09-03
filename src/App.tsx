@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <ParticlesComponent id="particles" particles_state={particles_state}/>
+      <ParticlesComponent id="tsparticles" particles_state={particles_state}/>
       <header className="App-header">
         <div className="container text-center">
           <h1 className="display-3">Blue Sky Engineering</h1>

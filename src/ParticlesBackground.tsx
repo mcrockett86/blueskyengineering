@@ -4,6 +4,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
+import './ParticlesBackground.css'
 
 function ParticlesComponent(props: any) {
 
@@ -68,7 +69,13 @@ function ParticlesComponent(props: any) {
               value: 100,
             },
             opacity: {
-              value: 0.5,
+              value: { min: 0, max: 0.5},  // start with 0 opacity, end with 0.5 opacity
+              animation: {
+                  enable: true,
+                  speed: 0.1,    // Adjust speed for animation
+                  sync: true,
+                  startValue: 'min'
+              }
             },
             shape: {
               type: "triangle"
@@ -95,26 +102,20 @@ function ParticlesComponent(props: any) {
     console.log("unsupported props.particles_state!")
   }
 
-  
-  useEffect(() => {
+  if (!init) {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      await loadSlim(engine);  // or loadFull(engine)
     }).then(() => {
       setInit(true);
     });
-  }, []);
-
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log("particles.js loaded", container);
-  };
-
+  }
+  
   if (init) {
     console.log("inside init conditional ...")
     //console.log(options?.particles?.color?.value);  // use optional chaining to not throw error
     return (
       <Particles
         id={props.id}
-        particlesLoaded={particlesLoaded}
         options={options}
       />
     );
