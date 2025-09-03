@@ -40,6 +40,10 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
     prevListening.current = listening;
   }, [listening, transcript, onUpdateMessage]);
 
+  let displayedText = transcript;
+  if (app_state === 'listening' && !transcript) {
+    displayedText = "begin speaking into your microphone now";
+  }
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser does not support speech recognition.</span>;
@@ -48,7 +52,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
       <div id="ChatBox">
         {/*<p>Microphone: {listening ? 'on' : 'off'}</p>
         <p>Processing: {processing.toString()}</p>*/}
-        <p className="transcript">{transcript}</p>
+        <p className="transcript">{displayedText}</p>
         <hr className="my-4" />
         <p>{response_text}</p>
       </div>
