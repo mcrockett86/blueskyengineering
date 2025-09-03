@@ -70,7 +70,7 @@ function App() {
               <a href="#" onClick={(e) => { e.preventDefault(); toggleAIChat(null); }} className="social-icon">
                 <FaRobot size={50} />
               </a>
-              <div className="icon-label">Chat with AI</div>
+              <div className="icon-label"><span className="ai-robot">Chat with AI</span></div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://linkedin.com/in/rniice" target="_blank" rel="noopener noreferrer" className="social-icon">

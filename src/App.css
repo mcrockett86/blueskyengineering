@@ -39,6 +39,10 @@
   white-space: nowrap;
 }
 
+.ai-robot {
+  color: #0cc926;
+}
+
 .social-icon-wrapper:hover .icon-label {
   opacity: 1;
 }
@@ -113,6 +117,6 @@ p.lead-promise {
 }
 
 span.lead-action {
-  color: #00ff0d;
+  color: #0cc926;
   font-size: 20px;
 }
