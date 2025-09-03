@@ -26,7 +26,7 @@ function App() {
       SpeechRecognition.startListening();
     } else if (particles_state === "listening") {
       SpeechRecognition.stopListening();
-      console.log(transcript);
+      console.log(`transcript: ${transcript}`);
       setParticlesState("active");
       console.log(`state changed to ${particles_state}`);
     } else if (particles_state === "active") {
