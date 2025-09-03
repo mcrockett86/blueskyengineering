@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import ParticlesComponent from './ParticlesBackground';
+import ButtonChat from './ButtonChat';
 
 function App() {
+  const [particles_state, setParticlesState] = useState("inactive");  // inactive, listening, active
+
+  const updateParticleBackground = () => {
+    if (particles_state === "inactive") {
+      setParticlesState("listening");
+      //console.log(`state changed to ${particles_state}`);
+    } else if (particles_state === "listening") {
+      setParticlesState("active");
+      //console.log(`state changed to ${particles_state}`);
+    } else {
+      setParticlesState("inactive");
+      //console.log(`state changed to ${particles_state}`);
+    }
+
+  };
+  
+
   return (
     <div className="App">
-      <ParticlesComponent id="particles" />
+      <ParticlesComponent id="particles" particles_state={particles_state}/>
       <header className="App-header">
         <div className="container text-center">
           <h1 className="display-3">Blue Sky Engineering</h1>
@@ -15,6 +33,9 @@ function App() {
           <p className="lead">
             <a className="btn btn-primary btn-lg mx-2" href="mailto:applybluesky@gmail.com" role="button">Contact Me</a>
             <a className="btn btn-secondary btn-lg mx-2" href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" role="button">Book a Meeting</a>
+            <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={updateParticleBackground}>Chat with AI</a>
+
+            {/*<ButtonChat />*/}
           </p>
         </div>
       </header>
