@@ -49,6 +49,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
         {/*<p>Microphone: {listening ? 'on' : 'off'}</p>
         <p>Processing: {processing.toString()}</p>*/}
         <p className="transcript">{transcript}</p>
+        <hr className="my-4" />
         <p>{response_text}</p>
       </div>
     );

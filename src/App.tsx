@@ -48,9 +48,9 @@ function App() {
           <h1 className="display-3">Blue Sky Engineering</h1>
           <h3 className="lead">AI, Data Science, & Machine Learning Services</h3>
           <hr className="my-4" />
-          <p className="lead">Whether you're looking to leverage AI for business growth, optimize operations with data science, or implement cutting-edge machine learning models, I'm here to help you achieve your goals.</p>
-          <p className="lead">Contact me using the icons below, including the option to speak with my AI robot persona below using only your voice!</p>
- 
+          <p className="lead-promise">Whether you're looking to leverage AI for business growth, optimize operations with data science, or implement cutting-edge machine learning models, I'm here to help you achieve your goals.</p>
+          <p className="lead-promise">Contact me using the icons below, including the option to speak with my <span className="lead-action">AI robot persona</span> below using only your voice!</p>
+          <hr className="my-4" />
           <ChatBox app_state={app_state} onUpdateMessage={updateMessageFromChildComponent} />
         </div>
           <div className="social-icons-container mt-4">
