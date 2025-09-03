@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ParticlesComponent from './ParticlesBackground';
 import ChatBox from './ChatBox';
-import { FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaFacebook, FaEnvelope, FaCalendarAlt, FaRobot } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 
 
@@ -49,15 +49,27 @@ function App() {
           <h4 className="lead">AI, Data Science, & Machine Learning Consulting Services</h4>
           <hr className="my-4" />
           <p className="lead">Whether you're looking to leverage AI for business growth, optimize operations with data science, or implement cutting-edge machine learning models, I'm here to help you navigate the complexities and achieve your goals.</p>
-          <p className="lead">
-            <a className="btn btn-primary btn-lg mx-2" href="mailto:applybluesky@gmail.com" role="button">Contact Me</a>
-            <a className="btn btn-secondary btn-lg mx-2" href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" role="button">Book a Meeting</a>
-            <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={toggleAIChat}>Chat with AI</a>
-          </p>
-
           <ChatBox app_state={app_state} onUpdateMessage={updateMessageFromChildComponent} />
         </div>
           <div className="social-icons-container mt-4">
+            <div className="social-icon-wrapper">
+              <a href="mailto:applybluesky@gmail.com" className="social-icon">
+                <FaEnvelope size={50} />
+              </a>
+              <div className="icon-label">Email</div>
+            </div>
+            <div className="social-icon-wrapper">
+              <a href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <FaCalendarAlt size={50} />
+              </a>
+              <div className="icon-label">Calendar</div>
+            </div>
+            <div className="social-icon-wrapper">
+              <a href="#" onClick={(e) => { e.preventDefault(); toggleAIChat(null); }} className="social-icon">
+                <FaRobot size={50} />
+              </a>
+              <div className="icon-label">Chat with AI</div>
+            </div>
             <div className="social-icon-wrapper">
               <a href="https://linkedin.com/in/rniice" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaLinkedin size={50} />
@@ -83,8 +95,13 @@ function App() {
               <div className="icon-label">Facebook</div>
             </div>
           </div>
-
       </header>
+
+      <body>
+
+        
+      </body>
+
     </div>
   );
 }
