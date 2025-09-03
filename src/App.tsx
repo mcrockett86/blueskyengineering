@@ -14,18 +14,28 @@ function App() {
     // when button is initially clicked
     if (app_state === "inactive") {
       setAppState("listening");
-      console.log(`state changed to ${app_state}`);
+      //console.log(`state changed to ${app_state}`);
     } else if (app_state === "listening") {
       setAppState("active");
-      console.log(`state changed to ${app_state}`);
+      //console.log(`state changed to ${app_state}`);
     } else if (app_state === "active") {
       setAppState("listening");
-      console.log(`state changed to ${app_state}`);
+      //console.log(`state changed to ${app_state}`);
     } else {
       setAppState("inactive");
-      console.log(`state changed to ${app_state}`);
+      //console.log(`state changed to ${app_state}`);
     }
   };
+
+  const updateMessageFromChildComponent = (newMessage: string) => {
+    if (newMessage === "processing"){
+      console.log("received updateMessage from child component!")
+      setAppState("active");
+      //console.log(`state changed to ${app_state}`);
+    }
+  };
+
+  console.log(`App.props.app_state = ${app_state}`);
 
   return (
     <div className="App">
@@ -41,7 +51,7 @@ function App() {
             <a className="btn btn-secondary btn-lg mx-2" href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" role="button">Book a Meeting</a>
             <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={toggleAIChat}>Chat with AI</a>
           </p>
-          <ChatBox app_state={app_state}/>
+          <ChatBox app_state={app_state} onUpdateMessage={updateMessageFromChildComponent} />
         </div>
       </header>
     </div>

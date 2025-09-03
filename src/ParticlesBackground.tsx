@@ -10,7 +10,7 @@ function ParticlesComponent(props: any) {
 
   const [init, setInit] = useState(false);  
 
-  console.log(`ParticlesComponent state: ${props.particles_state}`);
+  //console.log(`ParticlesComponent state: ${props.particles_state}`);
 
   function getOptions(particle_background:string = "#0d1117", particle_color:string = "#ffffff") {
     let state_options: ISourceOptions = {
@@ -111,7 +111,7 @@ function ParticlesComponent(props: any) {
   }
   
   if (init) {
-    console.log("inside init conditional ...")
+    //console.log("inside init conditional ...")
     //console.log(options?.particles?.color?.value);  // use optional chaining to not throw error
     return (
       <Particles
