@@ -78,7 +78,6 @@
   }
 }
 
-
 #particles {
   position: absolute;
   top: 0;
@@ -107,14 +106,4 @@
   background: rgba(0, 0, 0, 0.3);
   padding: 2rem;
   border-radius: 15px;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
 }

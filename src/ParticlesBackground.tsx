@@ -95,9 +95,9 @@ function ParticlesComponent(props: any) {
   if (props.particles_state === 'inactive') {
     options = getOptions("#0d1117", "#ffffff")
   } else if (props.particles_state === 'listening') {
-    options = getOptions("#0d1117", "#fff200")
+    options = getOptions("#0d1117", "#ff9900")
   } else if (props.particles_state === 'active') {
-    options = getOptions("#0d1117", "#00ff22")
+    options = getOptions("#0d1117", "#0cc926")
   } else {
     console.log("unsupported props.particles_state!")
   }

@@ -1,6 +1,6 @@
-#ChatBox {
+.transcript {
   position: relative;
   text-align: center;
   font-size: 20px;
-  color: rgb(0, 204, 255);
+  color: #ff9900;
 }
