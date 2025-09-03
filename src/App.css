@@ -4,10 +4,12 @@
 
 .social-icons-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding-top: 10px; /* Add space for the rising icon */
   padding-bottom: 30px; /* Add space for the label */
+  row-gap: 50px; /* Adds space between rows when they wrap */
 }
 
 .social-icon-wrapper {
