@@ -93,7 +93,7 @@ function ParticlesComponent(props: any) {
 
   // state management for the particles design
   if (props.particles_state === 'inactive') {
-    options = getOptions("#0d1117", "#ffffff")
+    options = getOptions("#0d1117", "#00c8ff")
   } else if (props.particles_state === 'listening') {
     options = getOptions("#0d1117", "#ff9900")
   } else if (props.particles_state === 'active') {
