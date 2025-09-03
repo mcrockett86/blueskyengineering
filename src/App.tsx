@@ -18,7 +18,7 @@ function App() {
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
-  const triggerAIChat = () => {
+  const toggleAIChat = (commanded_state: any | null) => {
     // when button is initially clicked
     if (particles_state === "inactive") {
       setParticlesState("listening");
@@ -29,11 +29,18 @@ function App() {
       console.log(transcript);
       setParticlesState("active");
       console.log(`state changed to ${particles_state}`);
+    } else if (particles_state === "active") {
+      setParticlesState("listening");
+      console.log(`state changed to ${particles_state}`);
     } else {
       setParticlesState("inactive");
       console.log(`state changed to ${particles_state}`);
     }
   };
+
+
+  // set up a trigger event detection for if the 'listening' variable changes from 'on' to 'off'
+  // can send a 'commanded_state' over to the triggerAIChat function to handle this.
 
 
   const triggerTranscriptionChat = () => {
@@ -54,7 +61,7 @@ function App() {
           <p className="lead">
             <a className="btn btn-primary btn-lg mx-2" href="mailto:applybluesky@gmail.com" role="button">Contact Me</a>
             <a className="btn btn-secondary btn-lg mx-2" href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" role="button">Book a Meeting</a>
-            <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={triggerAIChat}>Chat with AI</a>
+            <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={toggleAIChat}>Chat with AI</a>
           </p>
         </div>
       </header>
