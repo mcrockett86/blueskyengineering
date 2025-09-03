@@ -46,9 +46,11 @@ function App() {
       <header className="App-header">
         <div className="container text-center">
           <h1 className="display-3">Blue Sky Engineering</h1>
-          <h4 className="lead">AI, Data Science, & Machine Learning Consulting Services</h4>
+          <h3 className="lead">AI, Data Science, & Machine Learning Services</h3>
           <hr className="my-4" />
-          <p className="lead">Whether you're looking to leverage AI for business growth, optimize operations with data science, or implement cutting-edge machine learning models, I'm here to help you navigate the complexities and achieve your goals. You can contact me using my social network icons, or talk with my robot AI persona below!</p>
+          <p className="lead">Whether you're looking to leverage AI for business growth, optimize operations with data science, or implement cutting-edge machine learning models, I'm here to help you achieve your goals.</p>
+          <p className="lead">Contact me using the icons below, including the option to speak with my AI robot persona below using only your voice!</p>
+ 
           <ChatBox app_state={app_state} onUpdateMessage={updateMessageFromChildComponent} />
         </div>
           <div className="social-icons-container mt-4">

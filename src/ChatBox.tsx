@@ -20,6 +20,8 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
 
   const prevListening = useRef(listening);
 
+  let response_text = "";
+
   useEffect(() => {
     if (app_state === "listening") {
       SpeechRecognition.startListening();
@@ -44,9 +46,10 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
   } else {
     return (
       <div id="ChatBox">
-        <p>Microphone: {listening ? 'on' : 'off'}</p>
-        <p>Processing: {processing.toString()}</p>
-        <p>Chat Transcription: {transcript}</p>
+        {/*<p>Microphone: {listening ? 'on' : 'off'}</p>
+        <p>Processing: {processing.toString()}</p>*/}
+        <p>{transcript}</p>
+        <p>{response_text}</p>
       </div>
     );
   }
