@@ -43,6 +43,10 @@
   color: #0cc926;
 }
 
+.blue-brand {
+  color: #00c8ff;
+}
+
 .social-icon-wrapper:hover .icon-label {
   opacity: 1;
 }

@@ -58,13 +58,13 @@ function App() {
               <a href="mailto:applybluesky@gmail.com" className="social-icon">
                 <FaEnvelope size={50} />
               </a>
-              <div className="icon-label">Email</div>
+              <div className="icon-label"><span className="blue-brand">Email</span></div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaCalendarAlt size={50} />
               </a>
-              <div className="icon-label">Calendar</div>
+              <div className="icon-label"><span className="blue-brand">Calendar</span></div>
             </div>
             <div className="social-icon-wrapper">
               <a href="#" onClick={(e) => { e.preventDefault(); toggleAIChat(null); }} className="social-icon">
@@ -76,25 +76,25 @@ function App() {
               <a href="https://linkedin.com/in/rniice" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaLinkedin size={50} />
               </a>
-              <div className="icon-label">LinkedIn</div>
+              <div className="icon-label"><span className="blue-brand">LinkedIn</span></div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://github.com/mcrockett86" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaGithub size={50} />
               </a>
-              <div className="icon-label">GitHub</div>
+              <div className="icon-label"><span className="blue-brand">GitHub</span></div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://www.google.com/maps/place/47%C2%B037'17.0%22N+122%C2%B020'18.5%22W/@47.6241954,-122.357612,12940m/data=!3m1!1e3!4m4!3m3!8m2!3d47.6213889!4d-122.3384722?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaMapMarkerAlt size={50} />
               </a>
-              <div className="icon-label">Location</div>
+              <div className="icon-label"><span className="blue-brand">Location</span></div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://www.facebook.com/croketm/" target="_blank" rel="noopener noreferrer" className="social-icon">
                 <FaFacebook size={50} />
               </a>
-              <div className="icon-label">Facebook</div>
+              <div className="icon-label"><span className="blue-brand">Facebook</span></div>
             </div>
           </div>
       </header>
