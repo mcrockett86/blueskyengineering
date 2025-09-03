@@ -1,5 +1,5 @@
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import './ChatBox.css';
 
@@ -9,11 +9,7 @@ interface ChatBoxProps {
 }
 
 function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
-//function ChatBox(props: any) {
-
   const [processing, setProcessing] = useState(false);
-
-  //let props = {app_state: 'listening'}
 
   const {
     transcript,
@@ -22,37 +18,25 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
     browserSupportsSpeechRecognition
   } = useSpeechRecognition();
 
+  const prevListening = useRef(listening);
+
   useEffect(() => {
     if (app_state === "listening") {
       SpeechRecognition.startListening();
-      setProcessing(false)
+      setProcessing(false);
+    } else if (app_state === "active") {
+      setProcessing(true);
     }
-    else if (app_state === "active") {
-      SpeechRecognition.stopListening();
-      setProcessing(true)
-    } else {
+  }, [app_state]);
 
+  useEffect(() => {
+    // When listening changes from true to false and there is a transcript
+    if (prevListening.current && !listening && transcript) {
+      onUpdateMessage("processing");
     }
-
-    /*
-    if (!listening) {
-      // This block will execute when listening stops
-      //console.log('Speech recognition has stopped listening.');
-      // Perform any actions needed after listening ends, e.g., process the final transcript
-      //setProcessing(false)
-    } 
-    */  
-
-    /*
-    if (!listening && app_state === "listening" ) {
-      // Perform any actions needed after listening ends, e.g., process the final transcript
-      console.log('Speech recognition has stopped listening.');
-
-      //setProcessing(true)
-      //onUpdateMessage("processing");
-    }
-    */
-  }, [app_state, onUpdateMessage]);
+    // Update the ref to the current listening state for the next render
+    prevListening.current = listening;
+  }, [listening, transcript, onUpdateMessage]);
 
 
   if (!browserSupportsSpeechRecognition) {
@@ -62,7 +46,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
       <div id="ChatBox">
         <p>Microphone: {listening ? 'on' : 'off'}</p>
         <p>Processing: {processing.toString()}</p>
-        <p>{transcript}</p>
+        <p>Chat Transcription: {transcript}</p>
       </div>
     );
   }
