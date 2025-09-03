@@ -1,22 +1,44 @@
 import React, { useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+
 import './App.css';
 import ParticlesComponent from './ParticlesBackground';
 
 function App() {
   const [particles_state, setParticlesState] = useState("inactive");  // inactive, listening, active
 
-  const updateParticleBackground = () => {
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  if (!browserSupportsSpeechRecognition) {
+    return <span>Browser doesn't support speech recognition.</span>;
+  }
+
+  const triggerAIChat = () => {
+    // when button is initially clicked
     if (particles_state === "inactive") {
       setParticlesState("listening");
-      //console.log(`state changed to ${particles_state}`);
+      console.log(`state changed to ${particles_state}`);
+      SpeechRecognition.startListening();
     } else if (particles_state === "listening") {
+      SpeechRecognition.stopListening();
+      console.log(transcript);
       setParticlesState("active");
-      //console.log(`state changed to ${particles_state}`);
+      console.log(`state changed to ${particles_state}`);
     } else {
       setParticlesState("inactive");
-      //console.log(`state changed to ${particles_state}`);
+      console.log(`state changed to ${particles_state}`);
     }
+  };
 
+
+  const triggerTranscriptionChat = () => {
+
+    console.log("running transcription ...");
   };
   
 
@@ -32,7 +54,7 @@ function App() {
           <p className="lead">
             <a className="btn btn-primary btn-lg mx-2" href="mailto:applybluesky@gmail.com" role="button">Contact Me</a>
             <a className="btn btn-secondary btn-lg mx-2" href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" role="button">Book a Meeting</a>
-            <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={updateParticleBackground}>Chat with AI</a>
+            <a className="btn btn-secondary btn-lg mx-2" role="button" onClick={triggerAIChat}>Chat with AI</a>
           </p>
         </div>
       </header>
