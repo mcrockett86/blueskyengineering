@@ -38,4 +38,27 @@ python3 -m pip install pydantic-ai
 # TODO: need to package into requirements.txt used for the RAG repo for deployment later
 python3 -m pip freeze >> src_pydantic_ai/requirements_frozen.txt
 
+
+# test run with provided data
+cd src_pydantic_ai
+python3 main.py run
+
+# clear test run and provide new datastore of docs
+python3 main.py reset
+
+#Index and embed documents. You can specify a file or directory path.
+python3 main.py add -p "provided_data/source/"
+
+
+#Search for information using a query string.
+python3 main.py query "What experience do you have in machine learning engineering?"
+
+python3 main.py query "I am having a lot of technical scope creep and overworked engineers.  How can you help me introduce AI to solve this challenge?"
+
+python3 main.py query "what is your phone number?"
+python3 main.py query "what is your email address?"
+
+# TODO: create a boilerplate prompt with a response tone in order to model a consultant oriented response
+
+
 ##############################################
