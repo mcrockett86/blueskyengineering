@@ -50,7 +50,7 @@ function ParticlesComponent(props: any) {
               distance: 150,
               enable: true,
               opacity: 0.5,
-              width: 1,
+              width: 4,
             },
             move: {
               direction: "none",
@@ -81,7 +81,7 @@ function ParticlesComponent(props: any) {
               type: "triangle"
             },
             size: {
-              value: { min: 1, max: 5 },
+              value: { min: 1, max: 8 },
             },
           },
           detectRetina: true,
