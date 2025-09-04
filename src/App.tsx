@@ -58,43 +58,43 @@ function App() {
               <a href="mailto:applybluesky@gmail.com" className="social-icon blue-brand">
                 <FaEnvelope size={50} />
               </a>
-              <div className="icon-label">Email</div>
+              <div className="icon-label blue-brand">Email</div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://calendly.com/applybluesky/30min" target="_blank" rel="noopener noreferrer" className="social-icon blue-brand">
                 <FaCalendarAlt size={50} />
               </a>
-              <div className="icon-label">Calendar</div>
+              <div className="icon-label blue-brand">Calendar</div>
             </div>
             <div className="social-icon-wrapper">
               <a role="button" href="#foo" onClick={(e) => { e.preventDefault(); toggleAIChat(null); }} className="social-icon ai-robot">
                 <FaRobot size={50} />
               </a>
-              <div className="icon-label">Chat with AI</div>
+              <div className="icon-label ai-robot">Chat with AI</div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://linkedin.com/in/rniice" target="_blank" rel="noopener noreferrer" className="social-icon blue-brand">
                 <FaLinkedin size={50} />
               </a>
-              <div className="icon-label">LinkedIn</div>
+              <div className="icon-label blue-brand">LinkedIn</div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://github.com/mcrockett86" target="_blank" rel="noopener noreferrer" className="social-icon blue-brand">
                 <FaGithub size={50} />
               </a>
-              <div className="icon-label">GitHub</div>
+              <div className="icon-label blue-brand">GitHub</div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://www.google.com/maps/place/47%C2%B037'17.0%22N+122%C2%B020'18.5%22W/@47.6241954,-122.357612,12940m/data=!3m1!1e3!4m4!3m3!8m2!3d47.6213889!4d-122.3384722?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="social-icon blue-brand">
                 <FaMapMarkerAlt size={50} />
               </a>
-              <div className="icon-label">Location</div>
+              <div className="icon-label blue-brand">Location</div>
             </div>
             <div className="social-icon-wrapper">
               <a href="https://www.facebook.com/croketm/" target="_blank" rel="noopener noreferrer" className="social-icon blue-brand">
                 <FaFacebook size={50} />
               </a>
-              <div className="icon-label">Facebook</div>
+              <div className="icon-label blue-brand">Facebook</div>
             </div>
           </div>
       </header>
