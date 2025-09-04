@@ -9,7 +9,7 @@ interface ChatBoxProps {
 }
 
 function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
-  const [processing, setProcessing] = useState(false);
+  //const [processing, setProcessing] = useState(false);
 
   const {
     transcript,
@@ -24,9 +24,9 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
     if (app_state === "listening") {
       resetTranscript();
       SpeechRecognition.startListening();
-      setProcessing(false);
+      //setProcessing(false);
     } else if (app_state === "active") {
-      setProcessing(true);
+      //setProcessing(true);
     }
   }, [app_state, resetTranscript]);
 

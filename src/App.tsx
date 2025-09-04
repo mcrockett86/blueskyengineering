@@ -67,7 +67,7 @@ function App() {
               <div className="icon-label"><span className="blue-brand">Calendar</span></div>
             </div>
             <div className="social-icon-wrapper">
-              <a href="#" onClick={(e) => { e.preventDefault(); toggleAIChat(null); }} className="social-icon">
+              <a role="button" href="#foo" onClick={(e) => { e.preventDefault(); toggleAIChat(null); }} className="social-icon">
                 <FaRobot size={50} />
               </a>
               <div className="icon-label"><span className="ai-robot">Chat with AI</span></div>
