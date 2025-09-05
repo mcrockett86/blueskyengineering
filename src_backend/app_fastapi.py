@@ -8,7 +8,8 @@ app = FastAPI()
 # set up allowable origins for managing CORS policy
 origins = [
     #"http://localhost:3000", # for development purposes only
-    "http://blueskyengineering.net/",
+    "http://blueskyengineering.net",
+    "https://blueskyengineering.net",
 ]
 # Or, to allow all origins (use with caution):
 # origins = ["*"]
