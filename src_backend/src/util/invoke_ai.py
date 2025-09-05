@@ -9,7 +9,7 @@ def invoke_ai(system_message: str, user_message: str) -> str:
 
     client = OpenAI()  # Insert the API key here, or use env variable $OPENAI_API_KEY.
     response = client.chat.completions.create(
-        model="o4-mini",
+        model="o4-mini", # https://platform.openai.com/docs/models/o4-mini
         messages=[
             {"role": "system", "content": system_message},
             {"role": "user", "content": user_message},

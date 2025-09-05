@@ -42,7 +42,7 @@ class Datastore(BaseDatastore):
     def get_vector(self, content: str) -> List[float]:
         response = self.open_ai_client.embeddings.create(
             input=content,
-            model="text-embedding-3-small",
+            model="text-embedding-3-small", # https://platform.openai.com/docs/models/text-embedding-3-small
             dimensions=self.vector_dimensions,
         )
         embeddings = response.data[0].embedding

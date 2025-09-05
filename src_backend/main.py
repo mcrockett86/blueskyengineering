@@ -51,6 +51,12 @@ def main():
         print(f"✨ Response: {pipeline.process_query(args.prompt)}")
 
 
+def run_query(query:str):
+    pipeline = create_pipeline()
+    response = pipeline.process_query(query)
+    return response
+
+
 def get_files_in_directory(source_path: str) -> List[str]:
     if os.path.isfile(source_path):
         return [source_path]
