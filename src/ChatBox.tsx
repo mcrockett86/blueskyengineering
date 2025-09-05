@@ -42,9 +42,9 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
           "ngrok-skip-browser-warning": "69420",
         }),
       })
-        .then(res => res.text())
+        .then(res => res.json())
         .then(text => {
-          setResponseText(text.replace(/^"|"$/g, ''));
+          setResponseText(text);
           onUpdateMessage("active");
         })
         .catch(err => {
