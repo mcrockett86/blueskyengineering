@@ -36,7 +36,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
     // When listening changes from true to false and there is a transcript
     if (prevListening.current && !listening && transcript) {
       onUpdateMessage("processing");
-      fetch(`http://definite-perch-sincerely.ngrok-free.app/chat?question=${transcript}`, {
+      fetch(`https://definite-perch-sincerely.ngrok-free.app/chat?question=${encodeURIComponent(transcript)}`, {
         method: "get",
         headers: new Headers({
           "ngrok-skip-browser-warning": "69420",
