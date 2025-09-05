@@ -8,6 +8,7 @@
 .response {
   position: relative;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   color: #0cc926;
+  white-space: pre-wrap;
 }

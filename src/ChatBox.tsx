@@ -44,7 +44,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
       })
         .then(res => res.text())
         .then(text => {
-          setResponseText(text);
+          setResponseText(text.replace(/^"|"$/g, ''));
           onUpdateMessage("active");
         })
         .catch(err => {
