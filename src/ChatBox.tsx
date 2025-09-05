@@ -10,6 +10,7 @@ interface ChatBoxProps {
 
 function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
   //const [processing, setProcessing] = useState(false);
+  const [responseText, setResponseText] = useState('');
 
   const {
     transcript,
@@ -23,6 +24,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
   useEffect(() => {
     if (app_state === "listening") {
       resetTranscript();
+      setResponseText('');
       SpeechRecognition.startListening();
       //setProcessing(false);
     } else if (app_state === "active") {
@@ -34,6 +36,22 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
     // When listening changes from true to false and there is a transcript
     if (prevListening.current && !listening && transcript) {
       onUpdateMessage("processing");
+      fetch(`http://definite-perch-sincerely.ngrok-free.app/chat?question=${transcript}`, {
+        method: "get",
+        headers: new Headers({
+          "ngrok-skip-browser-warning": "69420",
+        }),
+      })
+        .then(res => res.text())
+        .then(text => {
+          setResponseText(text);
+          onUpdateMessage("active");
+        })
+        .catch(err => {
+          console.error("Error fetching chat response:", err);
+          setResponseText("Error fetching response.");
+          onUpdateMessage("active");
+        });
     }
     // Update the ref to the current listening state for the next render
     prevListening.current = listening;
@@ -42,11 +60,6 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
   let displayedText = transcript;
   if (app_state === 'listening' && !transcript) {
     displayedText = "begin speaking into your microphone now";
-  }
-
-  let response_text = "";
-  if (app_state === "active" && transcript) {
-    response_text = "placeholder AI response";
   }
 
   if (!browserSupportsSpeechRecognition) {
@@ -58,7 +71,7 @@ function ChatBox({app_state, onUpdateMessage}: ChatBoxProps) {
         <p>Processing: {processing.toString()}</p>*/}
         <p className="transcript">{displayedText}</p>
         <hr className="my-4" />
-        <p className="response">{response_text}</p>
+        <p className="response">{responseText}</p>
       </div>
     );
   }
