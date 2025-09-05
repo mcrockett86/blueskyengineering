@@ -1,8 +1,28 @@
 from fastapi import FastAPI
 from main import run_query
+from fastapi.middleware.cors import CORSMiddleware
 #import os
 
 app = FastAPI()
+
+# set up allowable origins for managing CORS policy
+origins = [
+    #"http://localhost:3000", # for development purposes only
+    "http://blueskyengineering.net/",
+]
+# Or, to allow all origins (use with caution):
+# origins = ["*"]
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Your list of allowed origins
+    allow_credentials=True, # Allow cookies, authorization headers, etc.
+    #allow_methods=["*"],   # Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+    allow_methods=["GET"],  # Allow only HTTP (GET)
+    allow_headers=["*"],    # Allow all headers
+)
+
 
 @app.get("/")
 def root():
